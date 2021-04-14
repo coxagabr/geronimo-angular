@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hq-button',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HqButtonComponent implements OnInit {
 
-  Texto: string;
+  @Input() Texto: string;
   Href: string;
   Apelido: string;
 

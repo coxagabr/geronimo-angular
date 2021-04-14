@@ -1,4 +1,30 @@
-<iframe width="560" height="315" [src]='rickroll' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><app-hq-button (click)="nextText()"></app-hq-button>
-<input *ngIf="Contador === 3" (keyup)="onKey($event)">
-<button *ngIf="Contador === 3" (click)="enviarEmail()">
-<p *ngIf="Contador===3">{{Apelido}}</p>
+<div class="box">
+    <div *ngIf="Contador === 0">
+        <img [src]="logo" alt="">
+        <p (click)="nextText()"> Começar </p>
+    </div>
+    <iframe *ngIf='rickrollReady' width="560" height="315" [src]='rickroll' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+    <div *ngIf="Contador !== 0 && !rickrollReady" >
+        <div class="container">
+            <div class="row texto">
+                <app-speech-bubble Text={{currentText}}></app-speech-bubble>
+            </div>
+            
+            <div class="row geronimo">
+                <app-geronimo></app-geronimo>
+            </div>
+            <div class="row">
+                <input *ngIf="Contador === 4" (keyup)="onKey($event)"/>
+            </div>
+            <div *ngIf="Contador === 7" class="row">
+                <input class="box2" [ngClass]="{'bounce': ativarAnimacao}">
+                <button style="width: 100%;" (click)="animar()">    !!    </button>
+            </div>
+            <div *ngIf="Contador !== 7" class="row">
+                <br/>
+                <app-hq-button Texto="Avançar" (click)="nextText()"></app-hq-button>
+            </div>
+        </div> 
+    </div>
+</div>

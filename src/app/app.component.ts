@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 const httpOptions = {
   headers: new HttpHeaders({ 
@@ -17,10 +18,13 @@ const httpOptions = {
 })
 export class AppComponent {
   
+  rickrollReady: boolean = false;
+  ativarAnimacao: boolean = false;
+  logo: string = '/assets/logo.png'
   rickroll: any;
   currentText: string;
   title = 'geronimo-angular';
-  Apelido: string = "Duda";
+  Apelido: string = "??";
   Contador: number = 0;
   Text: string[];
   Mensagem = {
@@ -35,11 +39,14 @@ export class AppComponent {
 
   textChanged(): void {
     this.Text= [
+      "nada aqui",
       "Olá!",
-      `Você deve ser a ${this.Apelido}`,
       "Eu sou o Gerônimo",
-      "Como gosta de ser chamada?",
-      `Ok, ${this.Apelido} será!`
+      `Você deve ser ... `,
+      "Como quer que eu te chame?",
+      `Ok ${this.Apelido}. Você sabe que existe um projeto secreto.`,
+      "E esse projeto secreto tem uma palavra mestra ...",
+      "Preciso que você confirme essa palavra mestra."
       ]
   }
 
@@ -49,9 +56,11 @@ export class AppComponent {
   }
 
   nextText(): void {
+    
     this.Contador += 1;
     this.currentText = this.Text[this.Contador];
     console.log(this.Contador);
+  
   }
 
   enviarEmail(): void {
@@ -65,5 +74,16 @@ export class AppComponent {
     this.Mensagem.message = event.target.value;
     this.Apelido = event.target.value;
     this.textChanged();
+  }
+
+  animar(): void {
+    console.log('iniciando animação')
+    this.ativarAnimacao = true
+    setTimeout( () => {
+      this.ativarAnimacao = false
+      console.log('animação finalizada')
+    }, 1000)
+    this.Contador += 1;
+    this.rickrollReady = true
   }
 }
