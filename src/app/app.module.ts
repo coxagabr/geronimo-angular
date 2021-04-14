@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
 import { HqButtonComponent } from './hq-button/hq-button.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DddButtonComponent } from './ddd-button/ddd-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpeechBubbleComponent,
-    HqButtonComponent
+    HqButtonComponent,
+    DddButtonComponent
   ],
   imports: [
     BrowserModule,

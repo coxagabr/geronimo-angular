@@ -1,4 +1,4 @@
-<app-speech-bubble Text="{{currentText}}"></app-speech-bubble>
-<app-hq-button (click)="nextText()"></app-hq-button>
+<iframe width="560" height="315" [src]='rickroll' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><app-hq-button (click)="nextText()"></app-hq-button>
 <input *ngIf="Contador === 3" (keyup)="onKey($event)">
+<button *ngIf="Contador === 3" (click)="enviarEmail()">
 <p *ngIf="Contador===3">{{Apelido}}</p>
