@@ -12,14 +12,12 @@ const httpOptions = {
 })
 export class ClientInfoService {
 
-  
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
   
   url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=25971bde8c4c4cd881f72ed94a9cae12'
 
-  getConfigResponse(): Observable {
-    return this.http.get(
-      this.configUrl, { observe: 'response' });
+  infoJson(): Observable<Object> {
+    return this.http.get(this.url)
   }
 
 }

@@ -3,8 +3,7 @@
         <img [src]="logo" alt="">
         <p (click)="nextText()"> Começar </p>
     </div>
-    <iframe *ngIf='rickrollReady' width="560" height="315" [src]='rickroll' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+    <app-rickroll *ngIf='rickrollReady'></app-rickroll>  
     <div *ngIf="Contador !== 0 && !rickrollReady" >
         <div class="container">
             <div class="row texto">
