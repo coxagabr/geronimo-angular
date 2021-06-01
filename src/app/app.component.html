@@ -19,7 +19,7 @@
                 <input type="text" #mensagem style="width: 100%;">
                 <button style="width: 100%;" (click)="setAndSendMessage(mensagem.value); nextText()">   enviar ;)    </button>
             </div>
-            <div *ngIf="Contador !== 9 && Contador !== 11" class="row">
+            <div *ngIf="Contador !== 9 && Contador !== 14" class="row">
                 <br/>
                 <app-hq-button Texto="Avançar" (click)="nextText()"></app-hq-button>
             </div>
