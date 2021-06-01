@@ -18,8 +18,8 @@ export class ClientInfoService {
   url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=25971bde8c4c4cd881f72ed94a9cae12'
 
   getConfigResponse(): Observable {
-    return this.http.get(
-      this.configUrl, { observe: 'response' });
+    return this.httpClient.get(
+      this.url, { observe: 'response' });
   }
 
 }

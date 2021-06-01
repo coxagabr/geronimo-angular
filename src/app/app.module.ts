@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DddButtonComponent } from './ddd-button/ddd-button.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GeronimoComponent } from './geronimo/geronimo.component';
+import { EnterButtonComponent } from './enter-button/enter-button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GeronimoComponent } from './geronimo/geronimo.component';
     SpeechBubbleComponent,
     HqButtonComponent,
     DddButtonComponent,
-    GeronimoComponent
+    GeronimoComponent,
+    EnterButtonComponent
   ],
   imports: [
     BrowserModule,

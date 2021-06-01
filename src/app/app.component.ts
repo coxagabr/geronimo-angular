@@ -27,7 +27,9 @@ export class AppComponent {
   Apelido: string = "??";
   Contador: number = 0;
   Text: string[];
+  geolocationPosition: any;
   Mensagem = {
+    "apelido" : "",
     "message": "NADA DIGITADO =(",
   }
 
@@ -44,9 +46,13 @@ export class AppComponent {
       "Eu sou o Gerônimo",
       `Você deve ser ... `,
       "Como quer que eu te chame?",
-      `Ok ${this.Apelido}. Você sabe que existe um projeto secreto.`,
-      "E esse projeto secreto tem uma palavra mestra ...",
-      "Preciso que você confirme essa palavra mestra."
+      `Ok, ${this.Apelido}. Você sabe que existe um projeto secreto.`,
+      "Mas ainda não posso te contar nada sobre ele.",
+      "Certamente ele existe e a chance de não existir é inexistente.",
+      "E já que você veio aqui, eu tenho um livro de convidados.",
+      "Você pode me deixar uma mensagem se quiser.",
+      "Espero poder te passar mais informações em breve :)",
+      "Até logo!"
       ]
   }
 
@@ -59,20 +65,36 @@ export class AppComponent {
     
     this.Contador += 1;
     this.currentText = this.Text[this.Contador];
-    console.log(this.Contador);
   
   }
 
-  enviarEmail(): void {
+  setAndSendMessage(message:string): void{
+    if (message != ""){
+      this.Mensagem.message = message;
+    }
+    this.enviarEmail()
+  }
+
+  enviarEmailTeste(): void {
     console.log(this.Mensagem)
+    console.log("email enviado!")
+  }
+
+  enviarEmail(): void {
+    console.log(JSON.stringify(this.Mensagem))
     this.http.post<any>("http://localhost:5000/gotcha", this.Mensagem, httpOptions).subscribe(data => {
     })
     console.log("email enviado!")
   }
 
   onKey(event): void {
-    this.Mensagem.message = event.target.value;
+    this.Mensagem.apelido = event.target.value;
     this.Apelido = event.target.value;
+    this.textChanged();
+  }
+
+  onKeyMessage(event): void {
+    this.Mensagem.message = event.target.value;
     this.textChanged();
   }
 
