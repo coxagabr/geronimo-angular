@@ -24,7 +24,7 @@ export class AppComponent {
   rickroll: any;
   currentText: string;
   title = 'geronimo-angular';
-  Apelido: string = "??";
+  Apelido: string = "Maria Eduarda";
   Contador: number = 0;
   Text: string[];
   geolocationPosition: any;
@@ -44,8 +44,8 @@ export class AppComponent {
       "nada aqui",
       "Olá!",
       "Eu sou o Gerônimo",
-      `Você deve ser ... `,
-      "Como quer que eu te chame?",
+      `Você deve ser a ${this.Apelido}`,
+      "Como prefere ser chamada?",
       `Ok, ${this.Apelido}. Você sabe que existe um projeto secreto.`,
       "Mas ainda não posso te contar nada sobre ele.",
       "Certamente ele existe e a chance de não existir é inexistente.",
