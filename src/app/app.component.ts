@@ -78,16 +78,11 @@ export class AppComponent {
     this.enviarEmail()
   }
 
-  enviarEmailTeste(): void {
-    console.log(this.Mensagem)
-    console.log("email enviado!")
-  }
-
   enviarEmail(): void {
     console.log(JSON.stringify(this.Mensagem))
-    this.http.post<any>("http://localhost:5000/gotcha", this.Mensagem, httpOptions).subscribe(data => {
+    this.http.post<any>("https://geronimoapi.herokuapp.com/luvya", this.Mensagem, httpOptions).subscribe(data => {
     })
-    console.log("email enviado!")
+    console.log("mensagem enviada!")
   }
 
   onKey(event): void {
