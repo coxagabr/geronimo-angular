@@ -50,7 +50,7 @@ export class AppComponent {
       "Mas ainda não posso te contar nada sobre ele.",
       "Certamente ele existe e a chance de não existir é inexistente.",
       "Por aqui você pode falar comigo",
-      "É só digitar e na caixinha ai de baixa e enviar!",
+      "É só digitar e na caixinha ai de baixo e enviar!",
       "Espero poder te passar mais informações em breve :)",
       "Sei que agora a casa está meio vazia",
       "E espero que a decepção não tenha sido muito grande",
