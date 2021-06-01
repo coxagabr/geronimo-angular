@@ -52,6 +52,9 @@ export class AppComponent {
       "E já que você veio aqui, eu tenho um livro de convidados.",
       "Você pode me deixar uma mensagem se quiser.",
       "Espero poder te passar mais informações em breve :)",
+      "Sei que agora a casa está meio vazia",
+      "E espero que a decepção não tenha sido muito grande",
+      "Precisando de qualquer coisa, sempre estarei aqui",
       "Até logo!"
       ]
   }
