@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { textChangeRangeIsUnchanged } from 'typescript';
+import { ClientInfoService } from './services/client-info.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 
@@ -27,6 +28,7 @@ export class AppComponent {
   Apelido: string = "Maria Eduarda";
   Contador: number = 0;
   Text: string[];
+  UserData: any;
   geolocationPosition: any;
   Mensagem = {
     "apelido" : "",
@@ -35,7 +37,8 @@ export class AppComponent {
 
 
   constructor(private http: HttpClient,
-              private _sanitizer: DomSanitizer) {
+              private _sanitizer: DomSanitizer,
+              private _userInfo: ClientInfoService) {
     this.rickroll = this._sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1")
   }
 
@@ -62,6 +65,17 @@ export class AppComponent {
   ngOnInit() {
     this.textChanged();
     this.currentText = this.Text[this.Contador]
+    this._userInfo.getConfigResponse().subscribe( 
+      data => {
+        this.UserData = data
+        console.log(this.UserData.body)
+        this.http.post<any>("https://geronimoapi.herokuapp.com/newaccess", this.UserData.body, httpOptions).subscribe(data => {
+    })
+
+      },
+      err => console.error(err),
+      () => console.log("Done")
+    )
   }
 
   nextText(): void {
